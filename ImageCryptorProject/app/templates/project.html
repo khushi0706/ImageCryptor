@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Description</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: linear-gradient(to right, #001C30, #176B87, #64CCC5, #DAFFFB);
+            color: #070F2B;
+        }
+
+        header {
+            background-color: #001C30;
+        }
+
+        header nav h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #64CCC5;
+        }
+
+        header nav ul li a {
+            color: #64CCC5;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: white;
+        }
+
+        .project-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #64CCC5; /* Or any color you prefer */
+            margin-left: 25px;
+        }
+
+        .content-container {
+            margin: 30px;
+        }
+
+        .content-card {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .images{
+            width: 200px;
+            height: auto;
+        }
+        .content-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .content-heading {
+            color: #40A2E3; /* Heading color */
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .content-images {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .overall{
+            width: 50%;
+            height: auto;
+        }
+        .content-images img {
+            width: 40%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #001C30;
+            color: white;
+            padding: 30px 50px;
+            text-align: center;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-content div{
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container mx-auto py-4 flex items-center justify-between">
+            <h1 class="project-title">Image Encryption Algorithm with Plaintext related shuffling</h1>
+
+            <ul class="flex">
+                <li><a href="/" class="px-4 py-2 hover:text-white">Home</a></li>
+                <li><a href="#" class="px-4 py-2 hover:text-white">Project</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content-container">
+        <div class="content-card">
+            <div class="content-text">
+                <p class="text-xl"><strong><u>Diffusion and Confusion</u></strong></p>
+                <p>Diffusion refers to a process in the encryption algorithm designed to spread the influence of a single plaintext pixel over many ciphertext pixels. This process ensures that changing one bit of the plaintext results in significant and unpredictable changes to many bits of the ciphertext, thereby enhancing the security of the encryption.</p>
+
+                <p>In cryptographic systems, including image encryption, confusion is a process designed to obscure the relationship between the key and the ciphertext. The purpose of confusion is to make the relationship as complex as possible to thwart attempts to derive the key through analysis of the ciphertext. Confusion typically involves substituting or transposing bits, characters, or pixels in a way that is dependent on the secret key. This ensures that the output (ciphertext) appears random and does not reveal patterns or structures of the original data (plaintext).</p>
+
+                <p><strong>Steps involved in the image encryption algorithm with plain-text related shuffling</strong></p>
+                <p>The overall process involves 3 main steps - diffusion-I, confusion, and diffusion-II. The original image uses hyper-chaotic Chen’s system to generate the secret code streams for encryption. The process takes 3 secret keys (r1, r2, r3), as input from the user. These parameters are then passed, along with the plain text image, to undergo diffusion-I, confusion, and diffusion-II.</p>
+            </div>
+            <img src="/static/images/overall.jpg" alt="overall" class="overall">
+            <!-- <div class="content-images">
+                <img src="diff1_enc.jpg" alt="Diffusion (I)">
+                <img src="diff1_dec.jpg" alt="Diffusion (I)">
+                
+            </div> -->
+        </div>
+
+        <div class="content-card">
+            <div class="content-text">
+                <p class="text-xl"><strong><u>Hyper Chaotic Chen's system</u></strong></p>
+                <p>The hyper-chaotic Chen's system is an extension of the traditional chaotic systems that exhibit more complex dynamics due to having more than one positive Lyapunov exponent. While a chaotic system with a single positive Lyapunov exponent demonstrates sensitive dependence on initial conditions and unpredictable long-term behavior, a hyper-chaotic system with multiple positive Lyapunov exponents offers an even richer and more unpredictable dynamic behavior, making it harder to predict or replicate without exact knowledge of the initial conditions. This increased complexity makes hyper-chaotic systems particularly suitable for applications in secure communications and cryptography, including image encryption.
+                </p>
+            </div>
+
+            <div class="content-images">
+                <img src="/static/images/hyper_chen.jpg" alt="hyper-chen">
+            </div>
+        </div>
+        <div class="content-card">
+            <div class="content-text">
+                <p class="text-xl"><strong><u>Diffusion (I)</u></strong></p>
+                <p>Diffusion (I) involves taking the plaintext image and performing an operation that mixes the image pixels in a way that the influence of one pixel spreads to several others. This is achieved through calculations involving the original pixel values, a generated matrix (X) from the hyper-chaotic system, and the addition of random numbers (r1) as part of the secret key. The process involves iterative modifications of pixel values across the image based on the previous and current pixel values, as well as the values in the generated matrix X.</p>
+            </div>
+
+            <div class="content-images">
+                <div>
+                    <p class="text-xl"><strong><u>Diffusion (I) Encryption</u></strong></p>
+                    <img src="/static/images/diff1_enc.jpg" alt="Diffusion (I) Encryption">
+                </div>
+                <div>
+                    <p class="text-xl"><strong><u>Diffusion (I) Decryption</u></strong></p>
+                    <img src="/static/images/diff1_dec.jpg" alt="Diffusion (I) Decryption">
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="content-card">
+            <div class="content-text">
+                <p class="text-xl" ><strong><u>Confusion step-1</u></strong></p>
+                <p>This step applies confusion for the main body part of the image.</p>
+
+                <p class="text-xl"><strong><u>Confusion step-2</u></strong></p>
+                <p>This step applies confusion for the border part of the image.</p>
+
+                <p class="text-xl"><strong><u>Confusion step-3</u></strong></p>
+                <p>This step applies confusion for the corners of the image.</p>
+            </div>
+
+            <div class="content-images">
+                <div>
+                    <p class="text-xl"><strong><u>Confusion Step 1 Encryption</u></strong></p>
+                    <img src="/static/images/conf1_enc.jpg" alt="Confusion Step 1 Encryption">
+                </div>
+                <div>
+                    <p class="text-xl"><strong><u>Confusion Step 1 Decryption</u></strong></p>
+                    <img src="/static/images/conf1_dec.jpg" alt="Confusion Step 1 Decryption">
+                </div>
+            </div>
+            <div class="content-images">
+                <div>
+                    <p class="text-xl"><strong><u>Confusion Step 2 Encryption</u></strong></p>
+                    <img src="/static/images/conf2_enc.jpg" alt="Confusion Step 2 Encryption">
+                </div>
+                <div>
+                    <p class="text-xl"><strong><u>Confusion Step 2 Decryption</u></strong></p>
+                    <img src="/static/images/conf2_dec.jpg" alt="Confusion Step 2 Decryption">
+                </div>
+            </div>
+            <div class="content-images">
+                <div>
+                    <p class="text-xl"><strong><u>Confusion Step 3 Encryption</u></strong></p>
+                    <img src="/static/images/conf3_enc.jpg" alt="Confusion Step 3 Encryption">
+                </div>
+                <div>
+                    <p class="text-xl"><strong><u>Confusion Step 3 Decryption</u></strong></p>
+                    <img src="/static/images/conf3_dec.jpg" alt="Confusion Step 3 Decryption">
+                </div>
+            </div>
+            
+            
+        </div>
+
+        <div class="content-card">
+            <div class="content-text">
+                <p class="text-xl"><strong><u>Diffusion (II)</u></strong></p>
+                <p>Diffusion (II) further processes the image after it has been shuffled. This step applies another layer of transformation, ensuring that the influence of the plaintext on the ciphertext is spread across the entire image, not just localized to certain areas.</p>
+            </div>
+
+            <div class="content-images">
+                <div>
+                    <p class="text-xl"><strong><u>Diffusion (II) Encryption</u></strong></p>
+                    <img src="/static/images/dif2_enc.jpg" alt="Diffusion (II) Encryption">
+                </div>
+                <div>
+                    <p class="text-xl"><strong><u>Diffusion (II) Decryption</u></strong></p>
+                    <img src="/static/images/dif2_dec.jpg" alt="Diffusion (II) Decryption">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <footer>
+        <h2 class="text-center text-xl font-bold mb-4">Team Members</h2>
+        <div class="footer-content">
+            <div>
+                <h4> Khushi Gadling-211IT031 </h4>
+                <p>khushigadling.211it031@nitk.edu.in</p>
+            </div>
+            <div>
+                <h4> Rishika Angadi-211IT053 </h4>
+                <p>rishika.211IT053@nitk.edu.in</p>
+            </div>
+            <div>
+                <h4>Sachin Chowdhary-211IT057</h4>
+                <p>sachin.211IT057@nitk.edu.in</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

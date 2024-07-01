@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: linear-gradient(to right, #001C30, #176B87, #64CCC5, #DAFFFB);
+        }
+
+        header {
+            background-color: #001C30;
+        }
+
+        header nav h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #64CCC5;
+        }
+
+        header nav ul li a {
+            color: #64CCC5;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: white;
+        }
+        .project-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #64CCC5; /* Or any color you prefer */
+            margin-left: 25px;
+            
+        }
+        .form-container {
+            background-color: #f3f4f6e1;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        footer {
+            background-color: #001C30;
+            color: white;
+            padding: 30px 50px;
+            text-align: center;
+        }
+
+        .logo-image {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            height: auto; /* Adjust the height as needed */
+            width: 4.5rem; /* Adjust the width as needed */
+            border-radius: 60%; /* To create a rounded square */
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-content div{
+            flex: 1;
+        }
+        .custom-button {
+            width: 40%;
+            padding: 0.75rem 1rem;
+            border-radius: 23px;
+            background-color: #40A2E3; /* Default background color */
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: none;
+            display: block; /* Ensure the button takes full width */
+            margin: 0 auto; /* Center the button horizontally */
+        }
+        .custom-button:hover {
+            background-color: #0B60B0; /* Hover background color */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container mx-auto py-4 flex items-center justify-between">
+            <h1 class="project-title">Image Encryption Algorithm with Plaintext related shuffling</h1>
+
+            <ul class="flex">
+                <li><a href="Home.html" class="px-4 py-2 hover:text-white">Home</a></li>
+                <li><a href="/project"  class="px-4 py-2 hover:text-white">Project</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- <div class="divider bg-blue-600 h-1"></div> -->
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-center mt-8">
+        <div class="form-container bg-gray-200 md:mr-8 mb-8 md:mb-0 p-8 rounded-lg shadow-lg">
+
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Image Encryption</h2>
+            <form action="/encrypt" method="post" enctype="multipart/form-data">
+                <label for="file" class="block mb-2 text-gray-800">Choose Image to Encrypt:</label>
+                <input type="file" id="file" name="file" required
+                class="w-full px-4 py-2 mb-4 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500">
+                <label for="r1" class="block mb-2 text-gray-800">Secret Key 1 (r1):</label>
+                <input type="number" id="r1" name="r1" required
+                class="w-full px-4 py-2 mb-4 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500">
+                <label for="r2" class="block mb-2 text-gray-800">Secret Key 2 (r2):</label>
+                <input type="number" id="r2" name="r2" required
+                class="w-full px-4 py-2 mb-4 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500">
+                <label for="r3" class="block mb-2 text-gray-800">Secret Key 3 (r3):</label>
+                <input type="number" id="r3" name="r3" required
+                class="w-full px-4 py-2 mb-4 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500">
+                <input type="submit" value="Encrypt" class="custom-button">
+                
+            </form>
+            <img src="/static/images/dec.png" alt="Encryption Logo" class="logo-image">
+        </div>
+        <div class="form-container bg-gray-100 md:ml-8 p-8 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Image Decryption</h2>
+            <form action="/decrypt" method="post" enctype="multipart/form-data">
+                <label for="file" class="block mb-2 text-gray-800">Choose Image to Decrypt:</label>
+                <input type="file" id="file" name="file" required
+                    class="w-full px-4 py-2 mb-4 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500">
+                <label for="r1" class="block mb-2 text-gray-800">Secret Key 1 (r1):</label>
+                <input type="number" id="r1" name="r1" required
+                    class="w-full px-4 py-2 mb-4 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500">
+                <label for="r2" class="block mb-2 text-gray-800">Secret Key 2 (r2):</label>
+                <input type="number" id="r2" name="r2" required
+                    class="w-full px-4 py-2 mb-4 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500">
+                <label for="r3" class="block mb-2 text-gray-800">Secret Key 3 (r3):</label>
+                <input type="number" id="r3" name="r3" required
+                    class="w-full px-4 py-2 mb-4 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500">
+                <input type="submit" value="Decrypt"
+                    class="custom-button">
+            </form>
+            <img src="/static/images/enc.png" alt="Encryption Logo" class="logo-image">
+
+        </div>
+    </div>
+    <footer>
+        <h2 class="text-center text-xl font-bold mb-4">Team Members</h2>
+        <div class="footer-content">
+            <div>
+                <h4> Khushi Gadling-211IT031 </h4>
+                <p>khushigadling.211it031@nitk.edu.in</p>
+            </div>
+            <div>
+                <h4> Rishika Angadi-211IT053 </h4>
+                <p>rishika.211IT053@nitk.edu.in</p>
+            </div>
+            <div>
+                <h4>Sachin Chowdhury-211IT057</h4>
+                <p>sachin.211IT057@nitk.edu.in</p>
+            </div>
+        </div>
+    </footer>
+    
+    
+    
+</body>
+
+</html>
